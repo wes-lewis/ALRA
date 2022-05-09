@@ -108,10 +108,13 @@ alra <- function( A_norm, k=0,q=10, quantile.prob = 0.001, use.mkl = F, mkl.seed
     #     A_norm_rank15 <- result.completed[[1]]     # The low rank approximation for reference purposes...not suggested for matrix completion
     #     A_norm_rank15_cor <- result.completed[[3]] # The actual adjusted, completed matrix
 
+    
     cat(sprintf("Read matrix with %d cells and %d genes\n", nrow(A_norm), ncol(A_norm)))
-    if (class(A_norm) != 'matrix') {
-        stop(sprintf("A_norm is of class %s, but it should be of class matrix. Did you forget to run as.matrix()?",class(A_norm)))
-    }
+    #
+    #Get rid of these lines to remove errors?
+    #if (class(A_norm) != 'matrix') {
+    #    stop(sprintf("A_norm is of class %s, but it should be of class matrix. Did you forget to run as.matrix()?",class(A_norm)))
+    #}
 
     if (k ==0 ) {
         k_choice <- choose_k(A_norm)
